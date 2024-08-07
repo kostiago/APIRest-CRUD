@@ -1,6 +1,7 @@
 package com.apirest.crud.repository;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,5 +33,51 @@ public class ProductRepository {
                 .stream()
                 .filter(product -> product.getId() == id)
                 .findFirst();
+    }
+
+    /**
+     * METODO PARA ADICIONAR UM NOVO PRODUTO.
+     * @param product QUE SERÁ ADICIONADO.
+     * @return UM PRODUTO QUE FOI ADICIONADO.
+     */
+    public Product newProduct (Product product) {
+
+        lastId++;
+
+        product.setId(lastId);
+        products.add(product);
+
+        return product;
+    }
+    
+    /**
+     * METODO PARA DELETAR UM PRODUTO POR ID.
+     * @param id DO PRODUTO DELETADO.
+     */
+    public void delete(Integer id) {
+        products.removeIf(product -> product.getId() == id);
+    }
+
+    /**
+     * METODO PARA ATUALIZAR PRODUTO POR ID
+     * @param product QUE SERÀ ATUALIZADO 
+     * @return O PRODUTO ATUALIZADO
+     */
+    public Product updateProduct (Product product) {
+        
+        //Buscar produto na lista
+        Optional<Product> productFound = getById(product.getId());
+
+        if (productFound.isEmpty()) {
+            throw new InputMismatchException("Produto não encontrado");
+        }
+
+        //Remover o produto antigo
+        delete(product.getId());
+
+        //adicionar o novo produto atualizado
+        products.add(product);
+
+        return product;
     }
 }
