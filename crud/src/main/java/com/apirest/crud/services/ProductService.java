@@ -28,7 +28,7 @@ public class ProductService {
      * @param id do produto a ser localizado.
      * @return Retorna um produto caso seja encontrado.
      */
-    public Optional<Product> getByID(Integer id) {
+    public Optional<Product> getById(Integer id) {
         return productRepository.getById(id);
     }
 
