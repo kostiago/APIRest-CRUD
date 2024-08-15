@@ -1,4 +1,4 @@
-package com.apirest.crud.controller;
+package com.apirest.crud.view.controller;
 
 import java.util.List;
 import java.util.Optional;

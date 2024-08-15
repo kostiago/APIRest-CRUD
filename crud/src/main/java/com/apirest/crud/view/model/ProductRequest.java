@@ -1,18 +1,11 @@
-package com.apirest.crud.model;
+package com.apirest.crud.view.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-@Entity
-public class Product {
 
-    //#region Atributos
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
+public class ProductRequest {
+     //#region Atributos
+    
+   
     private String name;
 
     private Integer quantity;
@@ -23,13 +16,8 @@ public class Product {
     //#endregion
 
     //#region Getters/Setters
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    
+   
 
     public String getName() {
         return name;
@@ -64,6 +52,5 @@ public class Product {
     }
 
     //#endregion
-    
     
 }

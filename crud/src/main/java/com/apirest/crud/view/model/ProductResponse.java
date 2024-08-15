@@ -1,16 +1,9 @@
-package com.apirest.crud.model;
+package com.apirest.crud.view.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-@Entity
-public class Product {
-
-    //#region Atributos
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class ProductResponse {
+     //#region Atributos
+    
     private Integer id;
 
     private String name;
@@ -64,6 +57,5 @@ public class Product {
     }
 
     //#endregion
-    
     
 }
